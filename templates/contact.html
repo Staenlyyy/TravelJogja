@@ -132,32 +132,32 @@
           </div>
           <!--Form Kontak-->
           <div class="col-md-6">
-            <form>
+            <form method="post" action="../backend/submit_contact.php">
               <div class="row p-5">
                 <div class="col">
                   <div class="mb-3">
                     <label for="first-name" class="form-label"><b>First Name</b></label>
-                    <input type="text" class="form-control form-control-underlined" id="first-name" placeholder="Enter first name" />
+                    <input type="text" class="form-control form-control-underlined" id="first-name" name="first-name" placeholder="Enter first name" />
                   </div>
                   <div class="mb-3">
                     <label for="email" class="form-label"><b>Email</b></label>
-                    <input type="email" class="form-control form-control-underlined" id="email" placeholder="Enter email" />
+                    <input type="email" class="form-control form-control-underlined" id="email" name="email" placeholder="Enter email" />
                   </div>
                 </div>
                 <div class="col">
                   <div class="mb-3">
                     <label for="last-name" class="form-label"><b>Last Name</b></label>
-                    <input type="text" class="form-control form-control-underlined" id="last-name" placeholder="Enter last name" />
+                    <input type="text" class="form-control form-control-underlined" id="last-name" name="last-name" placeholder="Enter last name" />
                   </div>
                   <div class="mb-3">
                     <label for="phone" class="form-label"><b>Phone Number</b></label>
-                    <input type="text" class="form-control form-control-underlined" id="phone" placeholder="Enter phone number" />
+                    <input type="text" class="form-control form-control-underlined" id="phone" name="phone" placeholder="Enter phone number" />
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="mb-3">
                     <label for="message" class="form-label"><b>Message</b></label>
-                    <textarea class="form-control form-control-underlined" id="message" rows="3" required placeholder="Enter your message"></textarea>
+                    <textarea class="form-control form-control-underlined" id="message" name="message" rows="3" required placeholder="Enter your message"></textarea>
                   </div>
                   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button type="submit" class="btn p-3" style="background-color: #290964; color: #fff; border-radius: 30px; padding: 10px">Send Message</button>
