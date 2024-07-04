@@ -39,11 +39,14 @@
 
       .nav-tabs .nav-item {
         text-align: center;
+        border: none; /* Menghilangkan border */
+        margin-bottom: -1px; /* Menggeser konten ke atas 1px agar tepi bawah tab dan konten berada pada garis bawah yang sama */
       }
 
       .nav-tabs .nav-item.show .nav-link,
       .nav-tabs .nav-link.active {
         border-bottom: 2px solid #007bff; /* Garis bawah untuk tab yang aktif */
+        border: none; /* Menghilangkan border */
       }
 
       .nav-item img {
@@ -108,7 +111,8 @@
   <body>
     <!--Navbar-->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
+
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -116,7 +120,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link font-weight-bold" href="index.html"><b>Home</b></a>
+                <a class="nav-link font-weight-bold" href="../index.html"><b>Home</b></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link font-weight-bold" href="about.html"><b>About</b></a>
@@ -125,9 +129,10 @@
                 <a class="nav-link font-weight-bold" href="contact.html"><b>Contact</b></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link font-weight-bold" href="info.html"><b>Info</b></a>
+                <a class="nav-link font-weight-bold" href="info_gunungkidul.html"><b>Info</b></a>
               </li>
-              <button type="button" class="btn btn-light rounded">
+              <button type="button" class="btn btn-light rounded" onclick="window.location.href='sign_in.html'">
+
                 <b>Sign In</b>
               </button>
             </ul>
@@ -140,19 +145,21 @@
     <!--Tab navigasi-->
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="#"><img src="../assets/image/image 4.png" alt="Home" /> Gunung Kidul</a>
+
+        <a class="nav-link" href="info_gunungkidul.html"><img src="../assets/image/image 4.png" alt="Home" /> Gunung Kidul</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="../assets/image/image 3.png" alt="Profile" /> Sleman</a>
+        <a class="nav-link" href="info_sleman.html"><img src="../assets/image/image 3.png" alt="Profile" /> Sleman</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="../assets/image/image 13.png" alt="Messages" /> Jogja Kota</a>
+        <a class="nav-link" href="info_jogjakota.html"><img src="../assets/image/image 13.png" alt="Messages" /> Jogja Kota</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="../assets/image/image 10.png" alt="Settings" /> Bantul</a>
+        <a class="nav-link" href="info_bantul.html"><img src="../assets/image/image 10.png" alt="Settings" /> Bantul</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><img src="../assets/image/image 8.png" alt="Help" /> Kulon Progo</a>
+        <a class="nav-link" href="info_kulonprogo.html"><img src="../assets/image/image 8.png" alt="Help" /> Kulon Progo</a>
+
       </li>
     </ul>
 
@@ -162,21 +169,28 @@
           <div class="col-md-4">
             <div class="card border-0 shadow-sm p-1">
               <div class="review review-yogya">
-                <h2>Review</h2>
+
+                <h2>Showcase</h2>
                 <img src="../assets/image/image 27.png" alt="Review Image" />
+
+                <h2>Review</h2>
+              
                 <p>Nama: Malioboro, Kota Baru, Kepatihan, Pakualaman, Kotabaru</p>
                 <p>Jenis Wisata: Wisata Budaya</p>
                 <p>Deskripsi: Salah satu kawasan wisata yang terkenal di Yogyakarta...</p>
+
               </div>
             </div>
           </div>
           <div class="col-md-8">
             <div class="info-yogya">
-              <h2>Kota Yogyakarta</h2>
+              <h2>Gunung Kidul</h2>
               <div class="card border-0 shadow-sm p-1">
                 <div class="row">
                   <div class="col-md-7">
+
                     <img src="../assets/image/Titik 0.jpg" alt="Yogyakarta Image" class="img-fluid" />
+
                     <p>
                       Kota Yogyakarta adalah. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate cumque eaque in at fugit esse velit explicabo a accusamus aliquid, exercitationem necessitatibus pariatur ipsa ipsam cum,
                       asperiores atque inventore delectus! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque commodi reprehenderit nihil quae optio natus consequatur iusto, error, incidunt dignissimos perferendis, at sit
@@ -225,8 +239,8 @@
           </div>
           <div class="col-md-4">
             <h5>Company</h5>
-            <p><a href="about.html" style="color: inherit; text-decoration: none">About</a></p>
-            <p><a href="contact.html" style="color: inherit; text-decoration: none">Contact</a></p>
+            <p><a href="../templates/about.html" style="color: inherit; text-decoration: none">About</a></p>
+            <p><a href="../templates/contact.html" style="color: inherit; text-decoration: none">Contact</a></p>
           </div>
           <div class="col-md text-end">
             <h5>Legal</h5>
