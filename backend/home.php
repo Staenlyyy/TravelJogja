@@ -1,6 +1,6 @@
 <?php
-// // Include config file
-// require_once "config.php";
+// Include config file
+include "config.php";
 
 // // Initialize the session
 // session_start();
@@ -14,7 +14,7 @@
 // Fetch data
 // $total_contact = $total_tags = $total_products = 0;
 
-// // Pagination for contact
+// Pagination for contact
 // $sql = "SELECT * FROM contact";
 // $result = $conection_db->query($sql);
 // $number_of_category_results = $result->num_rows;
@@ -45,15 +45,6 @@
 // // Define how many results you want per page
 // $results_per_page = 4;
 
-
-function formatRupiah($number)
-{
-    return 'Rp. ' . number_format($number, 0, ',', '.');
-}
-
-$total_contact = getCount($conection_db, 'contact');
-$total_tags = getCount($conection_db, 'tags');
-$total_products = getCount($conection_db, 'products');
 // function formatRupiah($number)
 // {
 //     return 'Rp. ' . number_format($number, 0, ',', '.');
@@ -118,7 +109,7 @@ $total_products = getCount($conection_db, 'products');
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="category.php">Category</a></li>
-                            <li><a href="tag.php">Tag</a></li>
+                            <li><a href="user.php">user</a></li>
                             <li><a href="product.php">Product</a></li>
                         </ul>
                     </li>
@@ -134,7 +125,7 @@ $total_products = getCount($conection_db, 'products');
         </div>
     </nav>
     <!-- [ navigation menu ] end -->
-
+<!-- yes -->
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
