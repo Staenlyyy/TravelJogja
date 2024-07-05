@@ -3,6 +3,20 @@
 $email = $password = "";
 $email_err = $password_err = "";
 
+// Database credentials
+$host = 'localhost';
+$db_user = 'root';
+$db_pass = '';
+$db_name = 'traveljogja';
+
+// Create connection
+$conection_db = new mysqli($host, $db_user, $db_pass, $db_name);
+
+// Check connection
+if($conection_db->connect_error) {
+    die("Connection failed: " . $conection_db->connect_error);
+}
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -29,24 +43,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         // Prepare a select statement
         $sql = "SELECT id, email, password FROM users WHERE email = ?";
-        if($stmt = mysqli_prepare($conection_db, $sql))
+        if($stmt = $conection_db->prepare($sql))
         {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
+            $stmt->bind_param("s", $param_email);
             
             // Set parameters
             $param_email = $email;
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt))
+            if($stmt->execute())
             {
                 // Store result
-                mysqli_stmt_store_result($stmt);
+                $stmt->store_result();
                 // Check if email exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1)
+                if($stmt->num_rows == 1)
                 {                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt))
+                    $stmt->bind_result($id, $email, $hashed_password);
+                    if($stmt->fetch())
                     {
                         if(password_verify($password, $hashed_password))
                         {
@@ -78,10 +92,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 echo "Oops! Something went wrong. Please try again later.";
             }
             // Close statement
-            mysqli_stmt_close($stmt);
+            $stmt->close();
         }
     }
     // Close connection
-    mysqli_close($conection_db);
+    $conection_db->close();
 }
 ?>
