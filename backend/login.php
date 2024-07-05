@@ -81,6 +81,7 @@ require_once "php_login.php";
             } else {
                 passwordInput.type = 'password';
             }
+            
         });
     </script>
 </body>
