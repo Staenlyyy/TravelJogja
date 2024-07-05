@@ -14,7 +14,7 @@ include('config.php');
 $results_per_page = 4;
 
 // Ambil jumlah hasil yang tersimpan di database
-$sql = "SELECT * FROM user";
+$sql = "SELECT * FROM admin";
 $result = $conection_db->query($sql);
 $number_of_results = $result->num_rows;
 
@@ -32,14 +32,14 @@ if (!isset($_GET['page'])) {
 $this_page_first_result = ($page - 1) * $results_per_page;
 
 // Ambil hasil yang dipilih dari database 
-$sql = "SELECT * FROM user LIMIT " . $this_page_first_result . ',' . $results_per_page;
+$sql = "SELECT * FROM admin LIMIT " . $this_page_first_result . ',' . $results_per_page;
 $result = $conection_db->query($sql);
 
 // Periksa apakah query mengembalikan baris apa pun
 if (mysqli_num_rows($result) > 0) {
-    $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $admins = mysqli_fetch_all($result, MYSQLI_ASSOC);
 } else {
-    $users = []; // Array kosong jika tidak ada user yang ditemukan
+    $admins = []; // Array kosong jika tidak ada admin yang ditemukan
 }
 mysqli_close($conection_db); // Tutup koneksi database
 ?>
@@ -48,7 +48,7 @@ mysqli_close($conection_db); // Tutup koneksi database
 <html lang="en">
 
 <head>
-    <title>Data User</title>
+    <title>Data Admin</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -89,7 +89,7 @@ mysqli_close($conection_db); // Tutup koneksi database
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
+                        <label>Navigasi</label>
                     </li>
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
                         <a href="home.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
@@ -97,8 +97,8 @@ mysqli_close($conection_db); // Tutup koneksi database
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="user.php">user</a></li>
-                            <li><a href="admin.php">admin</a></li>                           
+                            <li><a href="user.php">User</a></li>
+                            <li><a href="admin.php">Admin</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
@@ -143,30 +143,33 @@ mysqli_close($conection_db); // Tutup koneksi database
                             <div class="page-body">
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-center">
-                                        <h4>Data User</h4>
+                                        <h4>Data Admin</h4>
+                                        <div>
+                                            <a href="buat_admin.php" class="btn btn-primary">Tambah</a>
                                         </div>
+                                    </div>
                                     <div class="card-block">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th class="text-center">ID User</th>
+                                                        <th class="text-center">Nim</th>
                                                         <th class="text-center">Nama</th>
-                                                        <th class="text-center">Email</th>
+                                                        <th class="text-center">Gambar</th>
                                                         <th class="text-center">Password</th>
                                                         <th class="text-center">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($users as $user) : ?>
+                                                    <?php foreach ($admins as $admin) : ?>
                                                         <tr>
-                                                            <td class="text-center"><?php echo htmlspecialchars($user['id_user']); ?></td>
-                                                            <td class="text-center"><?php echo htmlspecialchars($user['nama']); ?></td>
-                                                            <td class="text-center"><?php echo htmlspecialchars($user['email']); ?></td>
-                                                            <td class="text-center"><?php echo htmlspecialchars($user['password']); ?></td>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['nim']); ?></td>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['nama']); ?></td>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['gambar']); ?></td>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['password']); ?></td>
                                                             <td class="text-center">
-                                                                <a href="edit_user.php?id_user=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                                <a href="delete_user.php?id_user=<?php echo $user['id_user']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                                                                <a href="edit_admin.php?nim=<?php echo $admin['nim']; ?>" class="btn btn-sm btn-primary">edit</a>
+                                                                <a href="delete_admin.php?nim=<?php echo $admin['nim']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this admin?')">Delete</a>
                                                             </td>
                                                         </tr>
                                                     <?php endforeach; ?>
@@ -178,7 +181,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                                                     <ul class="pagination justify-content-center">
                                                         <?php if ($page > 1) : ?>
                                                             <li class="page-item">
-                                                                <a class="page-link text-dark" href="user.php?page=<?php echo $page - 1; ?>" aria-label="Previous">
+                                                                <a class="page-link text-dark" href="admin.php?page=<?php echo $page - 1; ?>" aria-label="Previous">
                                                                     <span aria-hidden="true">&laquo;</span>
                                                                     <span class="sr-only">Previous</span>
                                                                 </a>
@@ -193,12 +196,12 @@ mysqli_close($conection_db); // Tutup koneksi database
                                                         <?php endif; ?>
 
                                                         <?php for ($i = 1; $i <= $number_of_pages; $i++) : ?>
-                                                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link text-dark" href="user.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link text-dark" href="admin.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                                                         <?php endfor; ?>
 
                                                         <?php if ($page < $number_of_pages) : ?>
                                                             <li class="page-item">
-                                                                <a class="page-link text-dark" href="user.php?page=<?php echo $page + 1; ?>" aria-label="Next">
+                                                                <a class="page-link text-dark" href="admin.php?page=<?php echo $page + 1; ?>" aria-label="Next">
                                                                     <span aria-hidden="true">&raquo;</span>
                                                                     <span class="sr-only">Next</span>
                                                                 </a>
@@ -214,17 +217,18 @@ mysqli_close($conection_db); // Tutup koneksi database
                                                     </ul>
                                                 </nav>
                                             <?php endif; ?>
-                                            <!-- Pagination end -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div id="styleSelector"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Required Js -->
     <script src="assets/js/vendor-all.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
