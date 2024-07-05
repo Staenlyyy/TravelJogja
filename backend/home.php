@@ -1,15 +1,15 @@
 <?php
-// Include config file
-require_once "config.php";
+// // Include config file
+// require_once "config.php";
 
-// Initialize the session
-session_start();
+// // Initialize the session
+// session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
-}
+// // Check if the user is logged in, if not then redirect him to login page
+// if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+//     header("location: login.php");
+//     exit;
+// }
 
 // Fetch data
 // $total_contact = $total_tags = $total_products = 0;
@@ -30,20 +30,21 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // $contact = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
 // Function to fetch count from a given table
-function getCount($conection_db, $table)
-{
-    $sql = "SELECT COUNT(*) as total FROM " . $table;
-    $result = mysqli_query($conection_db, $sql);
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        return $row['total'];
-    } else {
-        return 0; // or handle error
-    }
-}
+// function getCount($conection_db, $table)
+// {
+//     $sql = "SELECT COUNT(*) as total FROM " . $table;
+//     $result = mysqli_query($conection_db, $sql);
+//     if ($result) {
+//         $row = mysqli_fetch_assoc($result);
+//         return $row['total'];
+//     } else {
+//         return 0; // or handle error
+//     }
+// }
 
-// Define how many results you want per page
-$results_per_page = 4;
+// // Define how many results you want per page
+// $results_per_page = 4;
+
 
 function formatRupiah($number)
 {
@@ -53,6 +54,14 @@ function formatRupiah($number)
 $total_contact = getCount($conection_db, 'contact');
 $total_tags = getCount($conection_db, 'tags');
 $total_products = getCount($conection_db, 'products');
+// function formatRupiah($number)
+// {
+//     return 'Rp. ' . number_format($number, 0, ',', '.');
+// }
+
+// $total_contact = getCount($conection_db, 'contact');
+// $total_tags = getCount($conection_db, 'tags');
+// $total_products = getCount($conection_db, 'products');
 ?>
 
 <!DOCTYPE html>
