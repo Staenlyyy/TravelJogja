@@ -150,6 +150,17 @@
             color: orange;
         }
 
+        .rating .star {
+            font-size: 40px;
+            cursor: pointer;
+            color: gray;
+        }
+        .rating .star:hover,
+        .rating .star.active {
+            color: orange;
+        }
+        
+
     </style>
 </head>
 <body>
@@ -206,29 +217,30 @@
 <div class="container">
     <div class="ulasan-box text-center">
         <h2>Tulis Ulasan</h2>
-        <form>
+        <form id="review-form" action="../php/submit_review.php" method="post">
             <div class="form-group">
-                <textarea class="form-control transparent-bg" id="review" placeholder="Tulis ulasan Anda di sini" rows="5"></textarea>
+                <textarea class="form-control transparent-bg" id="review" name="komentar" placeholder="Tulis ulasan Anda di sini" rows="5"></textarea>
             </div>
             <div class="komen-box">
-            <div class="form-group">
-            <div class="label-rating">
-                <label for="rating">Berikan bintang pada tempat yang telah Anda kunjungi</label>
-                    <div id="rating" class="rating">
-                        <input type="hidden" name="rating" id="rating-value" value="0">
-                        <span class="star" data-value="1">&#9733;</span>
-                        <span class="star" data-value="2">&#9733;</span>
-                        <span class="star" data-value="3">&#9733;</span>
-                        <span class="star" data-value="4">&#9733;</span>
-                        <span class="star" data-value="5">&#9733;</span>
+                <div class="form-group">
+                    <div class="label-rating">
+                        <label for="rating">Berikan bintang pada tempat yang telah Anda kunjungi</label>
+                        <div id="rating" class="rating">
+                            <input type="hidden" name="rating" id="rating-value" value="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-        <button type="send" class="btn btn-primary btn-primary-custom">Kirimkan</button>
+            <button type="submit" class="btn btn-primary btn-primary-custom">Kirimkan</button>
         </form>
     </div>
 </div>
+
 <footer class="footer text-white py-3" style="background-color: #290964">
     <div class="container">
         <hr class="mt-4" />
@@ -254,7 +266,27 @@
         </div>
     </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.getElementById('rating-value');
 
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = star.getAttribute('data-value');
+                ratingValue.value = value;
+
+                stars.forEach(s => s.classList.remove('active'));
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.classList.add('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+6k7uwj0DI9+2C7Qu/5Y5ZW6N9pke" crossorigin="anonymous"></script>
 </body>
 </html>
