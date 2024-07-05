@@ -1,9 +1,9 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: home.php");
     exit;
 }
@@ -48,10 +48,10 @@ require_once "php_login.php";
                             <i class="feather icon-unlock auth-icon"></i>
                         </div>
                         <h3 class="mb-4">Login</h3>
-                        <div class="input-group mb-3 <?= (!empty($email_err)) ? 'has-error' : ''; ?>">
-                            <input type="email" class="form-control" name="email" placeholder="Email" value="<?= $email; ?>">
+                        <div class="input-group mb-3 <?= (!empty($nim_err)) ? 'has-error' : ''; ?>">
+                            <input type="text" class="form-control" name="nim" placeholder="NIM" value="<?= $nim; ?>">
                         </div>
-                        <span class="help-block"><?= $email_err; ?></span>
+                        <span class="help-block"><?= $nim_err; ?></span>
                         <div class="input-group mb-4 <?= (!empty($password_err)) ? 'has-error' : ''; ?>">
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                         </div>

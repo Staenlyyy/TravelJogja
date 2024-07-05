@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "config.php";
+include "config.php";
 
 // Initialize the session
 session_start();
@@ -14,7 +14,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Fetch data
 // $total_contact = $total_tags = $total_products = 0;
 
-// // Pagination for contact
+// Pagination for contact
 // $sql = "SELECT * FROM contact";
 // $result = $conection_db->query($sql);
 // $number_of_category_results = $result->num_rows;
@@ -30,29 +30,29 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // $contact = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
 // Function to fetch count from a given table
-function getCount($conection_db, $table)
-{
-    $sql = "SELECT COUNT(*) as total FROM " . $table;
-    $result = mysqli_query($conection_db, $sql);
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        return $row['total'];
-    } else {
-        return 0; // or handle error
-    }
-}
+// function getCount($conection_db, $table)
+// {
+//     $sql = "SELECT COUNT(*) as total FROM " . $table;
+//     $result = mysqli_query($conection_db, $sql);
+//     if ($result) {
+//         $row = mysqli_fetch_assoc($result);
+//         return $row['total'];
+//     } else {
+//         return 0; // or handle error
+//     }
+// }
 
-// Define how many results you want per page
-$results_per_page = 4;
+// // Define how many results you want per page
+// $results_per_page = 4;
 
-function formatRupiah($number)
-{
-    return 'Rp. ' . number_format($number, 0, ',', '.');
-}
+// function formatRupiah($number)
+// {
+//     return 'Rp. ' . number_format($number, 0, ',', '.');
+// }
 
-$total_contact = getCount($conection_db, 'contact');
-$total_tags = getCount($conection_db, 'tags');
-$total_products = getCount($conection_db, 'products');
+// $total_contact = getCount($conection_db, 'contact');
+// $total_tags = getCount($conection_db, 'tags');
+// $total_products = getCount($conection_db, 'products');
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +109,7 @@ $total_products = getCount($conection_db, 'products');
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="category.php">Category</a></li>
-                            <li><a href="tag.php">Tag</a></li>
+                            <li><a href="user.php">user</a></li>
                             <li><a href="product.php">Product</a></li>
                         </ul>
                     </li>
