@@ -12,7 +12,22 @@
 // }
 
 // Fetch data
-$total_categories = $total_tags = $total_products = 0;
+// $total_contact = $total_tags = $total_products = 0;
+
+// // Pagination for contact
+// $sql = "SELECT * FROM contact";
+// $result = $conection_db->query($sql);
+// $number_of_category_results = $result->num_rows;
+// $number_of_contact = ceil($number_of_category_results / $results_per_page);
+// if (!isset($_GET['contact'])) {
+//     $contact = 1;
+// } else {
+//     $contact = $_GET['contact'];
+// }
+// $this_category_first_result = ($contact - 1) * $results_per_page;
+// $sql = "SELECT * FROM contact LIMIT " . $this_category_first_result . ',' . $results_per_page;
+// $result = $conection_db->query($sql);
+// $contact = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
 // Function to fetch count from a given table
 // function getCount($conection_db, $table)
@@ -30,61 +45,15 @@ $total_categories = $total_tags = $total_products = 0;
 // // Define how many results you want per page
 // $results_per_page = 4;
 
-<<<<<<< Updated upstream
-// Pagination for categories
-$sql = "SELECT * FROM categories";
-$result = $conection_db->query($sql);
-$number_of_category_results = $result->num_rows;
-$number_of_category_pages = ceil($number_of_category_results / $results_per_page);
-if (!isset($_GET['category_page'])) {
-    $category_page = 1;
-} else {
-    $category_page = $_GET['category_page'];
-}
-$this_category_first_result = ($category_page - 1) * $results_per_page;
-$sql = "SELECT * FROM categories LIMIT " . $this_category_first_result . ',' . $results_per_page;
-$result = $conection_db->query($sql);
-$categories = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
-
-// Pagination for tags
-$sql = "SELECT * FROM tags";
-$result = $conection_db->query($sql);
-$number_of_tag_results = $result->num_rows;
-$number_of_tag_pages = ceil($number_of_tag_results / $results_per_page);
-if (!isset($_GET['tag_page'])) {
-    $tag_page = 1;
-} else {
-    $tag_page = $_GET['tag_page'];
-}
-$this_tag_first_result = ($tag_page - 1) * $results_per_page;
-$sql = "SELECT * FROM tags LIMIT " . $this_tag_first_result . ',' . $results_per_page;
-$result = $conection_db->query($sql);
-$tags = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
-
-// Pagination for products
-$sql = "SELECT * FROM products";
-$result = $conection_db->query($sql);
-$number_of_product_results = $result->num_rows;
-$number_of_product_pages = ceil($number_of_product_results / $results_per_page);
-if (!isset($_GET['product_page'])) {
-    $product_page = 1;
-} else {
-    $product_page = $_GET['product_page'];
-}
-$this_product_first_result = ($product_page - 1) * $results_per_page;
-$sql = "SELECT * FROM products LIMIT " . $this_product_first_result . ',' . $results_per_page;
-$result = $conection_db->query($sql);
-$products = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
 function formatRupiah($number)
 {
     return 'Rp. ' . number_format($number, 0, ',', '.');
 }
 
-$total_categories = getCount($conection_db, 'categories');
+$total_contact = getCount($conection_db, 'contact');
 $total_tags = getCount($conection_db, 'tags');
 $total_products = getCount($conection_db, 'products');
-=======
 // function formatRupiah($number)
 // {
 //     return 'Rp. ' . number_format($number, 0, ',', '.');
@@ -93,14 +62,13 @@ $total_products = getCount($conection_db, 'products');
 // $total_contact = getCount($conection_db, 'contact');
 // $total_tags = getCount($conection_db, 'tags');
 // $total_products = getCount($conection_db, 'products');
->>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Dressclo</title>
+    <title>Travel Jogja</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -201,8 +169,8 @@ $total_products = getCount($conection_db, 'products');
                         <div class="col-md-4">
                             <div class="card custom-card">
                                 <div class="card-body">
-                                    <h3 class="text-center">Total Categories</h3>
-                                    <p class="text-center display-4"><?php echo $total_categories; ?></p>
+                                    <h3 class="text-center">Total contact</h3>
+                                    <p class="text-center display-4"><?php echo $total_contact; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -224,26 +192,27 @@ $total_products = getCount($conection_db, 'products');
                         </div>
                     </div>
 
-                    <!-- Categories table with pagination -->
+                    <!-- Contacts table with pagination -->
                     <div class="col-md-13">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="text-center">Categories</h3>
+                                <h3 class="text-center">Pesan Contacts</h3>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">No</th>
-                                                <th class="text-center">Name</th>
-                                                <th class="text-center">Slug</th>
-                                                <th class="text-center">Category Count</th>
-                                                <th class="text-center">Image</th>
+                                                <th class="text-center">ID Pesan</th>
+                                                <th class="text-center">Nama Depan</th>
+                                                <th class="text-center">Nama Belakang</th>
+                                                <th class="text-center">Email</th>
+                                                <th class="text-center">No Handphone</th>
+                                                <th class="text-center">Pesan</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($categories as $index => $category) : ?>
+                                            <?php foreach ($contact as $index => $category) : ?>
                                                 <tr>
-                                                    <td class="text-center"><?php echo $index + 1 + ($category_page - 1) * $results_per_page; ?></td>
+                                                    <td class="text-center"><?php echo $index + 1 + ($contact - 1) * $results_per_page; ?></td>
                                                     <td class="text-center"><?php echo htmlspecialchars($category['name']); ?></td>
                                                     <td class="text-center"><?php echo htmlspecialchars($category['slug']); ?></td>
                                                     <td class="text-center"><?php echo htmlspecialchars($category['category_count']); ?></td>
@@ -252,13 +221,13 @@ $total_products = getCount($conection_db, 'products');
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
-                                    <!-- Pagination for categories -->
-                                    <?php if ($number_of_category_pages > 1) : ?>
+                                    <!-- Pagination for contact -->
+                                    <?php if ($number_of_contact > 1) : ?>
                                         <nav aria-label="Page navigation example">
                                             <ul class="pagination justify-content-center">
-                                                <?php if ($category_page > 1) : ?>
+                                                <?php if ($contact > 1) : ?>
                                                     <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?category_page=<?php echo $category_page - 1; ?>" aria-label="Previous">
+                                                        <a class="page-link text-dark" href="home.php?contact=<?php echo $contact - 1; ?>" aria-label="Previous">
                                                             <span aria-hidden="true">&laquo;</span>
                                                             <span class="sr-only">Previous</span>
                                                         </a>
@@ -271,158 +240,12 @@ $total_products = getCount($conection_db, 'products');
                                                         </a>
                                                     </li>
                                                 <?php endif; ?>
-                                                <?php for ($i = 1; $i <= $number_of_category_pages; $i++) : ?>
-                                                    <li class="page-item <?php if ($i == $category_page) echo 'active'; ?>"><a class="page-link text-dark" href="home.php?category_page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                                <?php for ($i = 1; $i <= $number_of_contact; $i++) : ?>
+                                                    <li class="page-item <?php if ($i == $contact) echo 'active'; ?>"><a class="page-link text-dark" href="home.php?contact=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                                                 <?php endfor; ?>
-                                                <?php if ($category_page < $number_of_category_pages) : ?>
+                                                <?php if ($contact < $number_of_contact) : ?>
                                                     <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?category_page=<?php echo $category_page + 1; ?>" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
-                                                    </li>
-                                                <?php else : ?>
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link text-dark" href="#" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
-                                                    </li>
-                                                <?php endif; ?>
-                                            </ul>
-                                        </nav>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tags table with pagination -->
-                    <div class="col-md-13">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="text-center">Tags</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">No</th>
-                                                <th class="text-center">Name</th>
-                                                <th class="text-center">Slug</th>
-                                                <th class="text-center">Tag Count</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($tags as $index => $tag) : ?>
-                                                <tr>
-                                                    <td class="text-center"><?php echo $index + 1 + ($tag_page - 1) * $results_per_page; ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($tag['name']); ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($tag['slug']); ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($tag['tag_count']); ?></td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                    <!-- Pagination for tags -->
-                                    <?php if ($number_of_tag_pages > 1) : ?>
-                                        <nav aria-label="Page navigation example">
-                                            <ul class="pagination justify-content-center">
-                                                <?php if ($tag_page > 1) : ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?tag_page=<?php echo $tag_page - 1; ?>" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
-                                                    </li>
-                                                <?php else : ?>
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link text-dark" href="#" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
-                                                    </li>
-                                                <?php endif; ?>
-                                                <?php for ($i = 1; $i <= $number_of_tag_pages; $i++) : ?>
-                                                    <li class="page-item <?php if ($i == $tag_page) echo 'active'; ?>"><a class="page-link text-dark" href="home.php?tag_page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                                                <?php endfor; ?>
-                                                <?php if ($tag_page < $number_of_tag_pages) : ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?tag_page=<?php echo $tag_page + 1; ?>" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
-                                                    </li>
-                                                <?php else : ?>
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link text-dark" href="#" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                            <span class="sr-only">Next</span>
-                                                        </a>
-                                                    </li>
-                                                <?php endif; ?>
-                                            </ul>
-                                        </nav>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Products table with pagination -->
-                    <div class="col-md-13">
-                        <div class="card">
-                            <div class="card-body">
-                                <h3 class="text-center">Products</h3>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">No</th>
-                                                <th class="text-center view-column">Name</th>
-                                                <th class="text-center">Category</th>
-                                                <th class="text-center">Tag</th>
-                                                <th class="text-center view-column">Link</th>
-                                                <th class="text-center">Image</th>
-                                                <th class="text-center">Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($products as $index => $product) : ?>
-                                                <tr>
-                                                    <td class="text-center"><?php echo $index + 1 + ($product_page - 1) * $results_per_page; ?></td>
-                                                    <td class="text-center view-column"><?php echo htmlspecialchars($product['name']); ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($product['category_id']); ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($product['tag_id']); ?></td>
-                                                    <td class="text-center view-column"><?php echo htmlspecialchars($product['link']); ?></td>
-                                                    <td class="text-center"><img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Product Image" style="width:40px;"></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars(formatRupiah($product['price'])); ?></td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                    <!-- Pagination for products -->
-                                    <?php if ($number_of_product_pages > 1) : ?>
-                                        <nav aria-label="Page navigation example">
-                                            <ul class="pagination justify-content-center">
-                                                <?php if ($product_page > 1) : ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?product_page=<?php echo $product_page - 1; ?>" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
-                                                    </li>
-                                                <?php else : ?>
-                                                    <li class="page-item disabled">
-                                                        <a class="page-link text-dark" href="#" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                            <span class="sr-only">Previous</span>
-                                                        </a>
-                                                    </li>
-                                                <?php endif; ?>
-                                                <?php for ($i = 1; $i <= $number_of_product_pages; $i++) : ?>
-                                                    <li class="page-item <?php if ($i == $product_page) echo 'active'; ?>"><a class="page-link text-dark" href="home.php?product_page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                                                <?php endfor; ?>
-                                                <?php if ($product_page < $number_of_product_pages) : ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?product_page=<?php echo $product_page + 1; ?>" aria-label="Next">
+                                                        <a class="page-link text-dark" href="home.php?contact=<?php echo $contact + 1; ?>" aria-label="Next">
                                                             <span aria-hidden="true">&raquo;</span>
                                                             <span class="sr-only">Next</span>
                                                         </a>
