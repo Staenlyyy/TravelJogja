@@ -26,6 +26,7 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 
+
 // Mengubah array menjadi format JSON
 echo json_encode($team);
 ?>
