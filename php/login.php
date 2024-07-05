@@ -1,5 +1,5 @@
 <?php
-include '../includes/db_connect.php';
+include '../backend/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
