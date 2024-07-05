@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once 'config.php';
+require_once '../backend/config.php';
 
 // Define variables and initialize with empty values
 $first_name = $last_name = $email = $phone = $message = "";
