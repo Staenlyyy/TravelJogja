@@ -125,7 +125,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </nav>
     <!-- [ navigation menu ] end -->
-<!-- -->
+<!-- yes -->
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
