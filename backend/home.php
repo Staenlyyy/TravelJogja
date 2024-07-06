@@ -80,6 +80,9 @@ $total_products = getCount($conection_db, 'products');
         .pcoded-header .navbar {
             background-color: #290964;
         }
+        .navbar-brand .b-title {
+            color: #ffffff;
+        }
     </style>
 </head>
 
@@ -99,7 +102,7 @@ $total_products = getCount($conection_db, 'products');
                     <div>
                         <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                     </div>
-                    <span class="b-title">DIY</span>
+                    <span class="b-title">Travel Jogja</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -138,7 +141,7 @@ $total_products = getCount($conection_db, 'products');
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                 </div>
-                <span class="b-title">Admin</span>
+                <span class="b-title">Travel Jogja</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
