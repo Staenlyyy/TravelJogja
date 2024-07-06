@@ -59,11 +59,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <title>Edit User</title>
-    <!-- Meta, Favicon, and CSS links here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link your CSS here -->
+    <style>
+        .navbar {
+            background-color: #290964;
+        }
+        
+        .header {
+            background-color: #290964;
+            color: #fff; /* Ubah warna teks header sesuai kebutuhan */
+        }
+        
+        .navbar-brand .b-title {
+            color: #fff; /* Ubah warna teks navbar brand sesuai kebutuhan */
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
-        <h2>Edit User</h2>
+        <h2 class="header">Edit User</h2>
         <p>Please edit the input values and submit to update the user record.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
@@ -71,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>">
             </div>
             <div class="form-group">
-                <label>Email</label>9
+                <label>Email</label>
                 <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
             </div>
             <div class="form-group">

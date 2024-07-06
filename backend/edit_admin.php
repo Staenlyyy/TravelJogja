@@ -17,94 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST["nama"];
     $password = $_POST["password"];
 
-    // Debugging output
-    echo "Received POST data: NIM = $nim, Nama = $nama, Password = $password<br>";
-
-    $targetDir = "uploads_admin/";
-    if (!is_dir($targetDir)) {
-        mkdir($targetDir, 0777, true);
-    }
-    $uploadOk = 1;
-    $targetFile = $targetDir . basename($_FILES["gambar"]["name"]);
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-    $isImageUploaded = false;
-
-    if (!empty($_FILES["gambar"]["name"])) {
-        $check = getimagesize($_FILES["gambar"]["tmp_name"]);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo "File is not an image.<br>";
-            $uploadOk = 0;
-        }
-
-        if (file_exists($targetFile)) {
-            echo "Sorry, file already exists.<br>";
-            $uploadOk = 0;
-        }
-
-        if ($_FILES["gambar"]["size"] > 500000) {
-            echo "Sorry, your file is too large.<br>";
-            $uploadOk = 0;
-        }
-
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br>";
-            $uploadOk = 0;
-        }
-
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.<br>";
-        } else {
-            if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $targetFile)) {
-                echo "The file " . htmlspecialchars(basename($_FILES["gambar"]["name"])) . " has been uploaded.<br>";
-                $isImageUploaded = true;
-            } else {
-                echo "Sorry, there was an error uploading your file.<br>";
-            }
-        }
-    }
-
-    if ($isImageUploaded) {
-        $sql = "UPDATE admin SET nama=?, gambar=?, password=? WHERE nim=?";
-    } else {
-        $sql = "UPDATE admin SET nama=?, password=? WHERE nim=?";
-    }
-
-    // Debugging output
-    echo "Preparing to execute query: $sql<br>";
-    echo "Values: Nama = $nama, Password = $password, NIM = $nim<br>";
-    if ($isImageUploaded) {
-        echo "Image uploaded at: $targetFile<br>";
-    }
-
-    if ($stmt = mysqli_prepare($conection_db, $sql)) {
-        if ($isImageUploaded) {
-            mysqli_stmt_bind_param($stmt, "sssi", $nama, $targetFile, $password, $nim);
-        } else {
-            mysqli_stmt_bind_param($stmt, "ssi", $nama, $password, $nim);
-        }
-
-        echo "Executing query...<br>";
-
-        if (mysqli_stmt_execute($stmt)) {
-            echo "Update successful!<br>";
-            header("location: admin.php");
-            exit;
-        } else {
-            echo "Something went wrong. Please try again later.<br>";
-            echo "Error: " . mysqli_stmt_error($stmt) . "<br>";
-        }
-        mysqli_stmt_close($stmt);
-    } else {
-        echo "Could not prepare the statement.<br>";
-        echo "Error: " . mysqli_error($conection_db) . "<br>";
-    }
-    mysqli_close($conection_db);
+    // ... (kode untuk proses update admin)
 } else {
     if (isset($_GET["nim"])) {
         $nim = $_GET["nim"];
-        echo "NIM: " . $nim . "<br>";
 
         $sql = "SELECT * FROM admin WHERE nim = ?";
         if ($stmt = mysqli_prepare($conection_db, $sql)) {
@@ -114,8 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result = mysqli_stmt_get_result($stmt);
                 if (mysqli_num_rows($result) == 1) {
                     $admin = mysqli_fetch_assoc($result);
-                    // Debugging output
-                    echo "Admin data retrieved: " . json_encode($admin) . "<br>";
                 } else {
                     echo "No records matching your query were found.<br>";
                 }
@@ -135,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Edit Admin</title>
     <meta charset="utf-8">
@@ -144,7 +59,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .pcoded-navbar {
+            background-color: #290964 !important;
+        }
+
+        .pcoded-header {
+            background-color: #290964;
+        }
+
+        .navbar-brand .b-title {
+            color: #ffffff;
+        }
+    </style>
 </head>
+
 <body>
     <div class="loader-bg">
         <div class="loader-track">
@@ -158,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div>
                         <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                     </div>
-                    <span class="b-title">DIY</span>
+                    <span class="b-title">Travel Jogja</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -194,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                 </div>
-                <span class="b-title">DIY</span>
+                <span class="b-title">Travel Jogja</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -260,4 +189,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
 </body>
+
 </html>
