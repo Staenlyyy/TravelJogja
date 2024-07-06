@@ -11,48 +11,40 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-// Fetch data
-// $total_contact = $total_tags = $total_products = 0;
+// Define how many results you want per page
+$results_per_page = 4;
 
 // Pagination for contact
-// $sql = "SELECT * FROM contact";
-// $result = $conection_db->query($sql);
-// $number_of_category_results = $result->num_rows;
-// $number_of_contact = ceil($number_of_category_results / $results_per_page);
-// if (!isset($_GET['contact'])) {
-//     $contact = 1;
-// } else {
-//     $contact = $_GET['contact'];
-// }
-// $this_category_first_result = ($contact - 1) * $results_per_page;
-// $sql = "SELECT * FROM contact LIMIT " . $this_category_first_result . ',' . $results_per_page;
-// $result = $conection_db->query($sql);
-// $contact = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+$sql = "SELECT * FROM contact";
+$result = $conection_db->query($sql);
+$number_of_category_results = $result->num_rows;
+$number_of_contact = ceil($number_of_category_results / $results_per_page);
+if (!isset($_GET['contact'])) {
+    $contact_page = 1;
+} else {
+    $contact_page = $_GET['contact'];
+}
+$this_category_first_result = ($contact_page - 1) * $results_per_page;
+$sql = "SELECT * FROM contact LIMIT " . $this_category_first_result . ',' . $results_per_page;
+$result = $conection_db->query($sql);
+$contacts = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
 // Function to fetch count from a given table
-// function getCount($conection_db, $table)
-// {
-//     $sql = "SELECT COUNT(*) as total FROM " . $table;
-//     $result = mysqli_query($conection_db, $sql);
-//     if ($result) {
-//         $row = mysqli_fetch_assoc($result);
-//         return $row['total'];
-//     } else {
-//         return 0; // or handle error
-//     }
-// }
+function getCount($conection_db, $table)
+{
+    $sql = "SELECT COUNT(*) as total FROM " . $table;
+    $result = mysqli_query($conection_db, $sql);
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    } else {
+        return 0; // or handle error
+    }
+}
 
-// // Define how many results you want per page
-// $results_per_page = 4;
-
-// function formatRupiah($number)
-// {
-//     return 'Rp. ' . number_format($number, 0, ',', '.');
-// }
-
-// $total_contact = getCount($conection_db, 'contact');
-// $total_tags = getCount($conection_db, 'tags');
-// $total_products = getCount($conection_db, 'products');
+$total_contact = getCount($conection_db, 'contact');
+$total_tags = getCount($conection_db, 'tags');
+$total_products = getCount($conection_db, 'products');
 ?>
 
 <!DOCTYPE html>
@@ -123,7 +115,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </nav>
     <!-- [ navigation menu ] end -->
-<!-- yes -->
+
     <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
@@ -145,6 +137,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </header>
     <!-- [ Header ] end -->
+
     <!-- Main Container -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
@@ -199,13 +192,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($contact as $index => $category) : ?>
+                                            <?php foreach ($contacts as $contact) : ?>
                                                 <tr>
-                                                    <td class="text-center"><?php echo $index + 1 + ($contact - 1) * $results_per_page; ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($category['name']); ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($category['slug']); ?></td>
-                                                    <td class="text-center"><?php echo htmlspecialchars($category['category_count']); ?></td>
-                                                    <td class="text-center"><img src="<?php echo htmlspecialchars($category['image']); ?>" alt="Category Image" style="width:40px;"></td>
+                                                    <td class="text-center"><?php echo htmlspecialchars($contact['id_pesan']); ?></td>
+                                                    <td class="text-center"><?php echo htmlspecialchars($contact['nama_depan']); ?></td>
+                                                    <td class="text-center"><?php echo htmlspecialchars($contact['nama_belakang']); ?></td>
+                                                    <td class="text-center"><?php echo htmlspecialchars($contact['email']); ?></td>
+                                                    <td class="text-center"><?php echo htmlspecialchars($contact['no_hp']); ?></td>
+                                                    <td class="text-center"><?php echo htmlspecialchars($contact['pesan']); ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -214,9 +208,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                     <?php if ($number_of_contact > 1) : ?>
                                         <nav aria-label="Page navigation example">
                                             <ul class="pagination justify-content-center">
-                                                <?php if ($contact > 1) : ?>
+                                                <?php if ($contact_page > 1) : ?>
                                                     <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?contact=<?php echo $contact - 1; ?>" aria-label="Previous">
+                                                        <a class="page-link text-dark" href="home.php?contact=<?php echo $contact_page - 1; ?>" aria-label="Previous">
                                                             <span aria-hidden="true">&laquo;</span>
                                                             <span class="sr-only">Previous</span>
                                                         </a>
@@ -230,11 +224,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                                                     </li>
                                                 <?php endif; ?>
                                                 <?php for ($i = 1; $i <= $number_of_contact; $i++) : ?>
-                                                    <li class="page-item <?php if ($i == $contact) echo 'active'; ?>"><a class="page-link text-dark" href="home.php?contact=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                                    <li class="page-item <?php if ($i == $contact_page) echo 'active'; ?>"><a class="page-link text-dark" href="home.php?contact=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                                                 <?php endfor; ?>
-                                                <?php if ($contact < $number_of_contact) : ?>
+                                                <?php if ($contact_page < $number_of_contact) : ?>
                                                     <li class="page-item">
-                                                        <a class="page-link text-dark" href="home.php?contact=<?php echo $contact + 1; ?>" aria-label="Next">
+                                                        <a class="page-link text-dark" href="home.php?contact=<?php echo $contact_page + 1; ?>" aria-label="Next">
                                                             <span aria-hidden="true">&raquo;</span>
                                                             <span class="sr-only">Next</span>
                                                         </a>

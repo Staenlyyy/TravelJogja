@@ -8,10 +8,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 include('config.php');
 
+// Aktifkan error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-ini_set('log_errors', 1);
-ini_set('error_log', 'path/to/php-error.log');  // Sesuaikan path sesuai kebutuhan
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nim = $_POST["nim"];
@@ -134,38 +133,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Edit Admin</title>
-
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/Dressclo.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
-
 <body>
-    <!-- [ Pre-loader ] start -->
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
         </div>
     </div>
-    <!-- [ Pre-loader ] End -->
-    <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
             <div class="navbar-brand header-logo">
@@ -202,9 +187,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </nav>
-    <!-- [ navigation menu ] end -->
-
-    <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
@@ -212,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                 </div>
-                <span class="b-title">Admin</span>
+                <span class="b-title">DIY</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -224,63 +206,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </div>
     </header>
-    <!-- [ Header ] end -->
     <div class="pcoded-main-container">
-    <div class="pcoded-wrapper">
-        <div class="pcoded-content">
-            <div class="pcoded-inner-content">
-                <div class="main-body">
-                    <div class="page-wrapper">
-                        <div class="page-body">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Edit Admin</h4>
-                                </div>
-                                <div class="card-block">
-                                    <form action="edit_admin.php" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="nim">NIM</label>
-                                            <input type="text" class="form-control" id="nim" name="nim" value="<?php echo htmlspecialchars($admin['nim']); ?>" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nama">Nama</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" value="<?php echo htmlspecialchars($admin['nama']); ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">Password</label>
-                                            <input type="password" class="form-control" id="password" name="password" value="<?php echo htmlspecialchars($admin['password']); ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="gambar">Gambar</label>
-                                            <input type="file" class="form-control-file" id="gambar" name="gambar">
-                                            <?php if (!empty($admin['gambar'])) : ?>
-                                                <div class="mt-2">
-                                                    <label for="current_image">Gambar Saat Ini:</label><br>
-                                                    <img src="<?php echo htmlspecialchars($admin['gambar']); ?>" alt="Current Image" style="max-width: 200px;">
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Update</button>
-                                            <a href="admin.php" class="btn btn-secondary">Cancel</a>
-                                        </div>
-                                    </form>
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <div class="page-body">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Edit Admin</h4>
+                                    </div>
+                                    <div class="card-block">
+                                        <form action="edit_admin.php" method="post" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="nim">NIM</label>
+                                                <input type="text" class="form-control" id="nim" name="nim" value="<?php echo htmlspecialchars($admin['nim']); ?>" readonly>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nama">Nama</label>
+                                                <input type="text" class="form-control" id="nama" name="nama" value="<?php echo htmlspecialchars($admin['nama']); ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="password" class="form-control" id="password" name="password" value="<?php echo htmlspecialchars($admin['password']); ?>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="gambar">Gambar</label>
+                                                <input type="file" class="form-control-file" id="gambar" name="gambar">
+                                                <?php if (!empty($admin['gambar'])) : ?>
+                                                    <div class="mt-2">
+                                                        <label for="current_image">Gambar Saat Ini:</label><br>
+                                                        <img src="<?php echo htmlspecialchars($admin['gambar']); ?>" alt="Current Image" style="max-width: 200px;">
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                                <a href="admin.php" class="btn btn-secondary">Cancel</a>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div id="styleSelector"></div>
                     </div>
-                    <div id="styleSelector"></div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-    <!-- Required Js -->
     <script src="assets/js/vendor-all.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/pcoded.min.js"></script>
-
 </body>
-
 </html>
