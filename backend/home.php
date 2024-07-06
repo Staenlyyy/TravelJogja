@@ -70,6 +70,13 @@ $total_products = getCount($conection_db, 'products');
         .pcoded-navbar {
             background-color: #290964 !important;
         }
+        .card.custom-card .card-body {
+            background-color: #290964;
+            color: white;
+        }
+        .pcoded-header {
+            background-color: #290964;
+        }
     </style>
 </head>
 
