@@ -216,26 +216,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <h4>Add New Admin</h4>
                                     </div>
                                     <div class="card-block">
-                                        <form method="post" action="create_admin.php" enctype="multipart/form-data">
+                                        <form method="post" action="php_buat_admin.php" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label for="nim">NIM:</label>
-                                                <input type="text" class="form-control <?php echo (!empty($nim_err)) ? 'is-invalid' : ''; ?>" id="nim" name="nim" value="<?php echo $nim; ?>" required>
-                                                <span class="invalid-feedback"><?php echo $nim_err; ?></span>
+                                                <input type="text" class="form-control" id="nim" name="nim" required>
+                                                <span class="invalid-feedback"></span>
                                             </div>
                                             <div class="form-group">
                                                 <label for="name">Name:</label>
-                                                <input type="text" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" id="name" name="name" value="<?php echo $name; ?>" required>
-                                                <span class="invalid-feedback"><?php echo $name_err; ?></span>
+                                                <input type="text" class="form-control" id="name" name="name" required>
+                                                <span class="invalid-feedback"></span>
                                             </div>
                                             <div class="form-group">
                                                 <label for="password">Password:</label>
-                                                <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="password" name="password" required>
-                                                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                                                <input type="password" class="form-control" id="password" name="password" required>
+                                                <span class="invalid-feedback"></span>
                                             </div>
                                             <div class="form-group">
                                                 <label for="image">Profile Image:</label>
-                                                <input type="file" class="form-control-file <?php echo (!empty($image_err)) ? 'is-invalid' : ''; ?>" id="image" name="image" accept="image/*" required>
-                                                <span class="invalid-feedback"><?php echo $image_err; ?></span>
+                                                <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+                                                <span class="invalid-feedback"></span>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-primary">Add Admin</button>

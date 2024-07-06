@@ -108,8 +108,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="user.php">user</a></li>
-                            <li><a href="admin.php">admin</a></li>
+                            <li><a href="user.php">User</a></li>
+                            <li><a href="admin.php">Admin</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
