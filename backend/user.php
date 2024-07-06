@@ -82,7 +82,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                     <div>
                         <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                     </div>
-                    <span class="b-title">Dressclo</span>
+                    <span class="b-title">DIY</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -97,15 +97,13 @@ mysqli_close($conection_db); // Tutup koneksi database
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="category.php">Category</a></li>
                             <li><a href="user.php">user</a></li>
-                            <li><a href="product.php">Product</a></li>
+                            <li><a href="admin.php">admin</a></li>                           
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Account</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="reset_password.php">Change Password</a></li>
                             <li><a href="logout.php">Log out</a></li>
                         </ul>
                     </li>
@@ -146,10 +144,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <h4>Data User</h4>
-                                        <div>
-                                            <a href="create_user.php" class="btn btn-primary">Tambah</a>
                                         </div>
-                                    </div>
                                     <div class="card-block">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered">

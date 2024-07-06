@@ -93,14 +93,14 @@ include "config.php";
                     <div>
                         <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                     </div>
-                    <span class="b-title">Dressclo</span>
+                    <span class="b-title">DIY</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
+                        <label>Navigasi</label>
                     </li>
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
                         <a href="home.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
@@ -108,15 +108,13 @@ include "config.php";
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="category.php">Category</a></li>
-                            <li><a href="user.php">user</a></li>
-                            <li><a href="product.php">Product</a></li>
+                            <li><a href="user.php">User</a></li>
+                            <li><a href="admin.php">Admin</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Account</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="reset_password.php">Change Password</a></li>
                             <li><a href="logout.php">Log out</a></li>
                         </ul>
                     </li>

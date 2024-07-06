@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="nama" class="form-control" value="<?php echo $nama; ?>">
             </div>
             <div class="form-group">
-                <label>Email</label>
+                <label>Email</label>9
                 <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
             </div>
             <div class="form-group">
