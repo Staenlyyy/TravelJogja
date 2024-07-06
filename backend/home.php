@@ -67,28 +67,8 @@ $total_products = getCount($conection_db, 'products');
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        body {
-            background-color: #290964 !important;
-        }
-        .card.custom-card {
-            background-color: #290964 !important;
-            color: white !important;
-        }
         .pcoded-navbar {
             background-color: #290964 !important;
-        }
-        .navbar-wrapper {
-            background-color: #290964 !important;
-        }
-        .b-title, .navbar .b-brand {
-            color: white !important;
-        }
-        .page-link {
-            color: white !important;
-        }
-        .page-item.active .page-link {
-            background-color: white !important;
-            color: #290964 !important;
         }
     </style>
 </head>
