@@ -150,30 +150,50 @@
             color: orange;
         }
 
+        .rating .star {
+            font-size: 40px;
+            cursor: pointer;
+            color: gray;
+        }
+        .rating .star:hover,
+        .rating .star.active {
+            color: orange;
+        }
+        
+
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
           <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item "><a class="nav-link font-weight-bold" href="#"><b>Home</b></a></li>
-                <li class="nav-item "><a class="nav-link font-weight-bold" href="#"><b>About</b></a></li>
-                <li class="nav-item "><a class="nav-link font-weight-bold" href="#"><b>Contact</b></a></li>
-                <li class="nav-item "><a class="nav-link font-weight-bold" href="#"><b>Info</b></a></li>
-                <button type="button" class="btn btn-light rounded"><b>Sign In</b></button>
+                <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="../index.html"><b>Home</b></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="about.html"><b>About</b></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="contact.html"><b>Contact</b></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link font-weight-bold" href="info_gunungkidul.html"><b>Info</b></a>
+                </li>
+                <button type="button" class="btn btn-light rounded" onclick="window.location.href='login.html'">
+                  <b>Sign In</b>
+                </button>
               </ul>
             </div>
           </div>
         </nav>
       </header>
       <div class ="titel-box">
-        <h1> Pantai Gunung Kidul</h1>
+        <h1> Pantai Jungwook</h1>
     </div>
     <div class="container">
     <div class="isi-box text-center">
@@ -206,29 +226,30 @@
 <div class="container">
     <div class="ulasan-box text-center">
         <h2>Tulis Ulasan</h2>
-        <form>
+        <form id="review-form" action="../php/submit_review.php" method="post">
             <div class="form-group">
-                <textarea class="form-control transparent-bg" id="review" placeholder="Tulis ulasan Anda di sini" rows="5"></textarea>
+                <textarea class="form-control transparent-bg" id="review" name="komentar" placeholder="Tulis ulasan Anda di sini" rows="5"></textarea>
             </div>
             <div class="komen-box">
-            <div class="form-group">
-            <div class="label-rating">
-                <label for="rating">Berikan bintang pada tempat yang telah Anda kunjungi</label>
-                    <div id="rating" class="rating">
-                        <input type="hidden" name="rating" id="rating-value" value="0">
-                        <span class="star" data-value="1">&#9733;</span>
-                        <span class="star" data-value="2">&#9733;</span>
-                        <span class="star" data-value="3">&#9733;</span>
-                        <span class="star" data-value="4">&#9733;</span>
-                        <span class="star" data-value="5">&#9733;</span>
+                <div class="form-group">
+                    <div class="label-rating">
+                        <label for="rating">Berikan bintang pada tempat yang telah Anda kunjungi</label>
+                        <div id="rating" class="rating">
+                            <input type="hidden" name="rating" id="rating-value" value="0">
+                            <span class="star" data-value="1">&#9733;</span>
+                            <span class="star" data-value="2">&#9733;</span>
+                            <span class="star" data-value="3">&#9733;</span>
+                            <span class="star" data-value="4">&#9733;</span>
+                            <span class="star" data-value="5">&#9733;</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-        <button type="send" class="btn btn-primary btn-primary-custom">Kirimkan</button>
+            <button type="submit" class="btn btn-primary btn-primary-custom">Kirimkan</button>
         </form>
     </div>
 </div>
+
 <footer class="footer text-white py-3" style="background-color: #290964">
     <div class="container">
         <hr class="mt-4" />
@@ -254,7 +275,27 @@
         </div>
     </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.getElementById('rating-value');
 
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = star.getAttribute('data-value');
+                ratingValue.value = value;
+
+                stars.forEach(s => s.classList.remove('active'));
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.classList.add('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+6k7uwj0DI9+2C7Qu/5Y5ZW6N9pke" crossorigin="anonymous"></script>
 </body>
 </html>
