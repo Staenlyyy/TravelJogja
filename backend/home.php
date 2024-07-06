@@ -2,14 +2,14 @@
 // Include config file
 include "config.php";
 
-// Initialize the session
-session_start();
+// // Initialize the session
+// session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
-}
+// // Check if the user is logged in, if not then redirect him to login page
+// if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+//     header("location: login.php");
+//     exit;
+// }
 
 // Define how many results you want per page
 $results_per_page = 4;
