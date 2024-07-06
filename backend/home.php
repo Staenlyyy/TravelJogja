@@ -2,14 +2,14 @@
 // Include config file
 include "config.php";
 
-// // Initialize the session
-// session_start();
+// Initialize the session
+session_start();
 
-// // Check if the user is logged in, if not then redirect him to login page
-// if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-//     header("location: login.php");
-//     exit;
-// }
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
 
 // Define how many results you want per page
 $results_per_page = 4;
@@ -66,7 +66,24 @@ $total_products = getCount($conection_db, 'products');
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <style>
+        .pcoded-navbar {
+            background-color: #290964 !important;
+        }
+        .card.custom-card .card-body {
+            background-color: #290964;
+            color: white;
+        }
+        .pcoded-header {
+            background-color: #290964;
+        }
+        .pcoded-header .navbar {
+            background-color: #290964;
+        }
+        .navbar-brand .b-title {
+            color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
@@ -85,7 +102,7 @@ $total_products = getCount($conection_db, 'products');
                     <div>
                         <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                     </div>
-                    <span class="b-title">DIY</span>
+                    <span class="b-title">Travel Jogja</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -124,7 +141,7 @@ $total_products = getCount($conection_db, 'products');
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                 </div>
-                <span class="b-title">Admin</span>
+                <span class="b-title">Travel Jogja</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">

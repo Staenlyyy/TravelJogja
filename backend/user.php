@@ -63,7 +63,19 @@ mysqli_close($conection_db); // Tutup koneksi database
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .pcoded-navbar {
+            background-color: #290964 !important;
+        }
 
+        .pcoded-header {
+            background-color: #290964;
+        }
+
+        .navbar-brand .b-title {
+            color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,7 +94,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                     <div>
                         <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                     </div>
-                    <span class="b-title">DIY</span>
+                    <span class="b-title">Travel Jogja</span>
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
@@ -97,8 +109,8 @@ mysqli_close($conection_db); // Tutup koneksi database
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="user.php">user</a></li>
-                            <li><a href="admin.php">admin</a></li>                           
+                            <li><a href="user.php">User</a></li>
+                            <li><a href="admin.php">Admin</a></li>                           
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
@@ -121,7 +133,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
                 </div>
-                <span class="b-title">Admin</span>
+                <span class="b-title">Travel Jogja</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -134,6 +146,7 @@ mysqli_close($conection_db); // Tutup koneksi database
         </div>
     </header>
     <!-- [ Header ] end -->
+
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -144,7 +157,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <h4>Data User</h4>
-                                        </div>
+                                    </div>
                                     <div class="card-block">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered">
@@ -225,6 +238,7 @@ mysqli_close($conection_db); // Tutup koneksi database
             </div>
         </div>
     </div>
+
     <!-- Required Js -->
     <script src="assets/js/vendor-all.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
