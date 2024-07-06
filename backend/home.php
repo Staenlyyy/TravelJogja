@@ -43,8 +43,6 @@ function getCount($conection_db, $table)
 }
 
 $total_contact = getCount($conection_db, 'contact');
-$total_tags = getCount($conection_db, 'tags');
-$total_products = getCount($conection_db, 'products');
 ?>
 
 <!DOCTYPE html>
@@ -97,15 +95,15 @@ $total_products = getCount($conection_db, 'products');
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-                <a href="home.php" class="b-brand">
-                    <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
-                    </div>
-                    <span class="b-title">Travel Jogja</span>
-                </a>
-                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-            </div>
+        <div class="navbar-brand header-logo" style="background-color: #290964;">
+            <a href="home.php" class="b-brand">
+                <div>
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                </div>
+              <span class="b-title">Travel Jogja</span>
+            </a>
+             <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
@@ -174,19 +172,9 @@ $total_products = getCount($conection_db, 'products');
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card custom-card">
-                                <div class="card-body">
-                                    <h3 class="text-center">Total Tags</h3>
-                                    <p class="text-center display-4"><?php echo $total_tags; ?></p>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card custom-card">
-                                <div class="card-body">
-                                    <h3 class="text-center">Total Products</h3>
-                                    <p class="text-center display-4"><?php echo $total_products; ?></p>
-                                </div>
                             </div>
                         </div>
                     </div>
