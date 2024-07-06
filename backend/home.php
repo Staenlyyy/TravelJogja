@@ -77,6 +77,9 @@ $total_products = getCount($conection_db, 'products');
         .pcoded-header {
             background-color: #290964;
         }
+        .pcoded-header .navbar {
+            background-color: #290964;
+        }
     </style>
 </head>
 
