@@ -63,7 +63,6 @@ require_once "php_login.php";
                             </div>
                         </div>
                         <button class="btn btn-primary shadow-2 mb-4">Login</button>
-                        <p class="mb-0 text-muted">Don’t have an account? <a href="register.php">Signup</a></p>
                     </div>
                 </form>
             </div>
