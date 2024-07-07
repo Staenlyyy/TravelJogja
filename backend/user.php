@@ -56,7 +56,7 @@ mysqli_close($conection_db); // Tutup koneksi database
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/Dressclo.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
     <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
@@ -80,7 +80,7 @@ mysqli_close($conection_db); // Tutup koneksi database
             <div class="navbar-brand header-logo">
                 <a href="home.php" class="b-brand">
                     <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                        <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                     </div>
                     <span class="b-title">DIY</span>
                 </a>
@@ -119,7 +119,7 @@ mysqli_close($conection_db); // Tutup koneksi database
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
                 <span class="b-title">Admin</span>
             </a>

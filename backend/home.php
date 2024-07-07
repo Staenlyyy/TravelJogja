@@ -57,7 +57,7 @@ $total_contact = getCount($conection_db, 'contact');
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/Dressclo.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
     <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
@@ -98,7 +98,7 @@ $total_contact = getCount($conection_db, 'contact');
         <div class="navbar-brand header-logo" style="background-color: #290964;">
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
               <span class="b-title">Travel Jogja</span>
             </a>
@@ -137,7 +137,7 @@ $total_contact = getCount($conection_db, 'contact');
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
                 <span class="b-title">Travel Jogja</span>
             </a>

@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="assets/images/Dressclo.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="navbar-brand header-logo">
                 <a href="home.php" class="b-brand">
                     <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                        <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                     </div>
                     <span class="b-title">DIY</span>
                 </a>
@@ -192,7 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
                 <span class="b-title">DIY</span>
             </a>
