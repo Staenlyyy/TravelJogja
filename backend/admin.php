@@ -102,9 +102,8 @@ mysqli_close($conection_db); // Tutup koneksi database
 .pcoded-navbar .nav-item.active .nav-link {
     background-color: #290964 !important;
 }
-
+</style>
 </head>
-
 
 <body>
     <!-- [ Pre-loader ] start -->

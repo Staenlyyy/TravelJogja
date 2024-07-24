@@ -132,22 +132,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <head>
-    <title>Travel Jogja</title>
-
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
-    <!-- fontawesome icon -->
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
-    <!-- animation css -->
-    <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
-    <!-- vendor css -->
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
 .pcoded-navbar {
     background-color: #290964 !important;
@@ -197,35 +181,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-                <a href="home.php" class="b-brand">
-                    <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
-                    </div>
-                    <span class="b-title">DIY</span>
-                </a>
-                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-            </div>
+        <div class="navbar-brand header-logo" style="background-color: #290964;">
+            <a href="home.php" class="b-brand">
+                <div>
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
+                </div>
+              <span class="b-title">Travel Jogja</span>
+            </a>
+             <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
-                        <label>Navigation</label>
+                        <label>Navigasi</label>
                     </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item pcoded-hasmenu">
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
                         <a href="home.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                     </li>
-                    <li class="nav-item active pcoded-hasmenu">
+                    <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Travel</span></a>
                         <ul class="pcoded-submenu">
-                            <li><a href="user.php">user</a></li>
-                            <li><a href="admin.php">admin</a></li>
+                            <li><a href="user.php">User</a></li>
+                            <li><a href="admin.php">Admin</a></li>
                         </ul>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Account</span></a>
                         <ul class="pcoded-submenu">
                             <li><a href="logout.php">Log out</a></li>
-
                         </ul>
                     </li>
                 </ul>
@@ -240,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
                 <span class="b-title">Admin</span>
             </a>
