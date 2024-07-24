@@ -74,24 +74,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .pcoded-navbar {
-            background-color: #290964 !important;
-        }
-        .card.custom-card .card-body {
-            background-color: #290964;
-            color: white;
-        }
-        .pcoded-header {
-            background-color: #290964;
-        }
-        .pcoded-header .navbar {
-            background-color: #290964;
-        }
-        .navbar-brand .b-title {
-            color: #ffffff;
-        }
-    </style>
-</head>
+.pcoded-navbar {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .nav {
+    background-color: #290964;
+}
+.pcoded-navbar .navbar-content .nav a {
+    color: white !important;
+}
+.card.custom-card .card-body {
+    background-color: #290964;
+    color: white;
+}
+.pcoded-header {
+    background-color: #290964;
+}
+.pcoded-header .navbar {
+    background-color: #290964;
+}
+.navbar-brand .b-title {
+    color: #ffffff;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item.active .nav-link {
+    background-color: #290964 !important;
+}
+</style>
 
 <body>
 <div class="loader-bg">

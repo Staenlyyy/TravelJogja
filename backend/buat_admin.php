@@ -132,24 +132,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <head>
+    <title>Travel Jogja</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .pcoded-navbar {
-            background-color: #290964 !important;
-        }
-        .card.custom-card .card-body {
-            background-color: #290964;
-            color: white;
-        }
-        .pcoded-header {
-            background-color: #290964;
-        }
-        .pcoded-header .navbar {
-            background-color: #290964;
-        }
-        .navbar-brand .b-title {
-            color: #ffffff;
-        }
-    </style>
+.pcoded-navbar {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .nav {
+    background-color: #290964;
+}
+.pcoded-navbar .navbar-content .nav a {
+    color: white !important;
+}
+.card.custom-card .card-body {
+    background-color: #290964;
+    color: white;
+}
+.pcoded-header {
+    background-color: #290964;
+}
+.pcoded-header .navbar {
+    background-color: #290964;
+}
+.navbar-brand .b-title {
+    color: #ffffff;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item.active .nav-link {
+    background-color: #290964 !important;
+}
+</style>
 </head>
 
 <body>
