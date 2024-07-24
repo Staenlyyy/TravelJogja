@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="navbar-brand header-logo">
                 <a href="home.php" class="b-brand">
                     <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                        <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                     </div>
                     <span class="b-title">DIY</span>
                 </a>
@@ -188,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
                 <span class="b-title">Admin</span>
             </a>
