@@ -43,8 +43,6 @@ function getCount($conection_db, $table)
 }
 
 $total_contact = getCount($conection_db, 'contact');
-$total_tags = getCount($conection_db, 'tags');
-$total_products = getCount($conection_db, 'products');
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +57,7 @@ $total_products = getCount($conection_db, 'products');
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="assets/images/Dressclo.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
     <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
@@ -67,23 +65,43 @@ $total_products = getCount($conection_db, 'products');
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .pcoded-navbar {
-            background-color: #290964 !important;
-        }
-        .card.custom-card .card-body {
-            background-color: #290964;
-            color: white;
-        }
-        .pcoded-header {
-            background-color: #290964;
-        }
-        .pcoded-header .navbar {
-            background-color: #290964;
-        }
-        .navbar-brand .b-title {
-            color: #ffffff;
-        }
-    </style>
+.pcoded-navbar {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .nav {
+    background-color: #290964;
+}
+.pcoded-navbar .navbar-content .nav a {
+    color: white !important;
+}
+.card.custom-card .card-body {
+    background-color: #290964;
+    color: white;
+}
+.pcoded-header {
+    background-color: #290964;
+}
+.pcoded-header .navbar {
+    background-color: #290964;
+}
+.navbar-brand .b-title {
+    color: #ffffff;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item.active .nav-link {
+    background-color: #290964 !important;
+}
+</style>
+
+
 </head>
 
 <body>
@@ -97,15 +115,15 @@ $total_products = getCount($conection_db, 'products');
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-                <a href="home.php" class="b-brand">
-                    <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
-                    </div>
-                    <span class="b-title">Travel Jogja</span>
-                </a>
-                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-            </div>
+        <div class="navbar-brand header-logo" style="background-color: #290964;">
+            <a href="home.php" class="b-brand">
+                <div>
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
+                </div>
+              <span class="b-title">Travel Jogja</span>
+            </a>
+             <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
@@ -139,7 +157,7 @@ $total_products = getCount($conection_db, 'products');
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
             <a href="home.php" class="b-brand">
                 <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/Dressclo.ico" alt="activity-user">
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
                 <span class="b-title">Travel Jogja</span>
             </a>
@@ -168,25 +186,15 @@ $total_products = getCount($conection_db, 'products');
                         <div class="col-md-4">
                             <div class="card custom-card">
                                 <div class="card-body">
-                                    <h3 class="text-center">Total contact</h3>
+                                    <h3 class="text-center">Pesan masuk</h3>
                                     <p class="text-center display-4"><?php echo $total_contact; ?></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="card custom-card">
-                                <div class="card-body">
-                                    <h3 class="text-center">Total Tags</h3>
-                                    <p class="text-center display-4"><?php echo $total_tags; ?></p>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card custom-card">
-                                <div class="card-body">
-                                    <h3 class="text-center">Total Products</h3>
-                                    <p class="text-center display-4"><?php echo $total_products; ?></p>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -98,7 +98,7 @@
               <li class="nav-item">
                 <a class="nav-link font-weight-bold" href="templates/info_gunungkidul.html"><b>Info</b></a>
               </li>
-              <button type="button" class="btn btn-light rounded" onclick="window.location.href='templates/sign_in.html'">
+              <button type="button" class="btn btn-light rounded" onclick="window.location.href='templates/login.html'">
                 <b>Sign In</b>
               </button>
             </ul>
@@ -195,70 +195,11 @@
 <!--card untuk menampilkan anggota tim-->
 <!-- masih perlu banyak revisi -->
  <!-- revisi lagi gan -->
-<div class="container">
-    <div class="row mt-5 d-flex justify-content-center">
-        <!-- Card 1 -->
-        <div class="col-md-4">
-          <div class="card" style="width: 232px">
-            <img src="foto_nicolas.jpg" class="card-img-top" alt="Foto Anggota 1" style="height: 255px" />
-            <div class="card-body">
-              <h5 class="card-title">Nicolas</h5>
-              <p class="card-text">Lead Frontend</p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="col-md-4">
-          <div class="card" style="width: 232px">
-            <img src="foto_nicolas.jpg" class="card-img-top" alt="Foto Anggota 1" style="height: 255px" />
-            <div class="card-body">
-              <h5 class="card-title">Nicolas</h5>
-              <p class="card-text">Lead Frontend</p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-md-4">
-          <div class="card" style="width: 232px">
-            <img src="foto_nicolas.jpg" class="card-img-top" alt="Foto Anggota 1" style="height: 255px" />
-            <div class="card-body">
-              <h5 class="card-title">Nicolas</h5>
-              <p class="card-text">Lead Frontend</p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="col-md-4">
-          <div class="card" style="width: 232px">
-            <img src="foto_nicolas.jpg" class="card-img-top" alt="Foto Anggota 1" style="height: 255px" />
-            <div class="card-body">
-              <h5 class="card-title">Nicolas</h5>
-              <p class="card-text">Lead Frontend</p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="col-md-4">
-          <div class="card" style="width: 232px">
-            <img src="foto_nicolas.jpg" class="card-img-top" alt="Foto Anggota 1" style="height: 255px" />
-            <div class="card-body">
-              <h5 class="card-title">Nicolas</h5>
-              <p class="card-text">Lead Frontend</p>
-            </div>
-          </div>
-        </div>
-        <!-- Card 6 -->
-        <div class="col-md-4">
-          <div class="card" style="width: 232px">
-            <img src="foto_nicolas.jpg" class="card-img-top" alt="Foto Anggota 1" style="height: 255px" />
-            <div class="card-body">
-              <h5 class="card-title">Nicolas</h5>
-              <p class="card-text">Lead Frontend</p>
-            </div>
-          </div>
+      <div class="container">
+        <div class="row mt-5 d-flex justify-content-center">
+          <!-- Data will be dynamically added here by JavaScript -->
         </div>
       </div>
-    </div>
 
     <footer class="footer text-white py-3" style="background-color: #290964">
       <div class="container">
@@ -285,5 +226,54 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+          fetch('../TravelJogja/php/get_admin_data.php')
+              .then(response => response.json())
+              .then(data => {
+                  const container = document.querySelector('.row.mt-5.d-flex.justify-content-center');
+                  data.forEach(admin => {
+                      const col = document.createElement('div');
+                      col.className = 'col-md-4';
+
+                      const card = document.createElement('div');
+                      card.className = 'card text-center mb-4';
+                      card.style.width = '232px';
+                      
+                      //const img = document.createElement('img');
+                      //img.src = admin.gambar;
+                      //img.className = 'card-img-top';
+                      //img.alt = Foto ${admin.nama};
+                      //img.style.height = '255px';
+
+                      const img = document.createElement('img');
+                      img.src ='backend/'+ admin.gambar; 
+                      img.className = 'card-img-top';
+                      img.alt = 'Foto ${admin.nama}';
+                      img.style.height = '255px';
+
+                      const cardBody = document.createElement('div');
+                      cardBody.className = 'card-body';
+
+                      const cardTitle = document.createElement('h5');
+                      cardTitle.className = 'card-title';
+                      cardTitle.textContent = admin.nama;
+
+                      const cardText = document.createElement('p');
+                      cardText.className = 'card-text';
+                      cardText.textContent = admin.nim;
+
+                      cardBody.appendChild(cardTitle);
+                      cardBody.appendChild(cardText);
+                      card.appendChild(img);
+                      card.appendChild(cardBody);
+                      col.appendChild(card);
+
+                      container.appendChild(col);
+                  });
+              })
+              .catch(error => console.error('Error:', error));
+      });
+  </script>
   </body>
 </html>
