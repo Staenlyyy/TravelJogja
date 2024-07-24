@@ -99,7 +99,7 @@ mysqli_close($conection_db); // Tutup koneksi database
     background-color: #290964 !important;
 }
 </style>
-
+</head>
 <body>
     <!-- [ Pre-loader ] start -->
     <div class="loader-bg">

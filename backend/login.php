@@ -66,6 +66,7 @@ require_once "php_login.php";
     background-color: #290964 !important;
 }
 </style>
+</head>
 
 <body>
     <div class="auth-wrapper">

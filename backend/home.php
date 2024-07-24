@@ -100,8 +100,6 @@ $total_contact = getCount($conection_db, 'contact');
     background-color: #290964 !important;
 }
 </style>
-
-
 </head>
 
 <body>
