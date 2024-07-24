@@ -67,6 +67,7 @@ mysqli_close($conection_db); // Tutup koneksi database
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+
 .pcoded-navbar {
     background-color: #290964 !important;
 }
@@ -159,7 +160,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
-                <span class="b-title">Admin</span>
+                <span class="b-title">Travel Jogja</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -172,91 +173,93 @@ mysqli_close($conection_db); // Tutup koneksi database
         </div>
     </header>
     <!-- [ Header ] end -->
+
     <div class="pcoded-main-container">
-    <div class="pcoded-wrapper">
-        <div class="pcoded-content">
-            <div class="pcoded-inner-content">
-                <div class="main-body">
-                    <div class="page-wrapper">
-                        <div class="page-body">
-                            <div class="card">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h4>Data Admin</h4>
-                                    <div>
-                                        <a href="buat_admin.php" class="btn btn-primary">Tambah</a>
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <div class="page-body">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h4>Data Admin</h4>
+                                        <div>
+                                            <a href="buat_admin.php" class="btn btn-primary">Tambah</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-block">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">Nim</th>
-                                                    <th class="text-center">Nama</th>
-                                                    <th class="text-center">Gambar</th>
-                                                    <th class="text-center">Password</th>
-                                                    <th class="text-center">Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($admins as $admin) : ?>
+                                    <div class="card-block">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered">
+                                                <thead>
                                                     <tr>
-                                                        <td class="text-center"><?php echo htmlspecialchars($admin['nim']); ?></td>
-                                                        <td class="text-center"><?php echo htmlspecialchars($admin['nama']); ?></td>
-                                                        <td class="text-center">
-                                                            <img src="<?php echo htmlspecialchars($admin['gambar']); ?>" alt="Gambar" width="50">
-                                                        </td>
-                                                        <td class="text-center"><?php echo htmlspecialchars($admin['password']); ?></td>
-                                                        <td class="text-center">
-                                                            <a href="edit_admin.php?nim=<?php echo $admin['nim']; ?>" class="btn btn-sm btn-primary">Edit</a>
-                                                            <a href="delete_admin.php?nim=<?php echo $admin['nim']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this admin?')">Delete</a>
-                                                        </td>
+                                                        <th class="text-center">Nim</th>
+                                                        <th class="text-center">Nama</th>
+                                                        <th class="text-center">Gambar</th>
+                                                        <th class="text-center">Password</th>
+                                                        <th class="text-center">Aksi</th>
                                                     </tr>
-                                                <?php endforeach; ?>
-                                            </tbody>
-                                        </table>
-                                        <!-- Pagination -->
-                                        <?php if ($number_of_pages > 1) : ?>
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination justify-content-center">
-                                                    <?php if ($page > 1) : ?>
-                                                        <li class="page-item">
-                                                            <a class="page-link text-dark" href="admin.php?page=<?php echo $page - 1; ?>" aria-label="Previous">
-                                                                <span aria-hidden="true">&laquo;</span>
-                                                                <span class="sr-only">Previous</span>
-                                                            </a>
-                                                        </li>
-                                                    <?php else : ?>
-                                                        <li class="page-item disabled">
-                                                            <a class="page-link text-dark" href="#" aria-label="Previous">
-                                                                <span aria-hidden="true">&laquo;</span>
-                                                                <span class="sr-only">Previous</span>
-                                                            </a>
-                                                        </li>
-                                                    <?php endif; ?>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($admins as $admin) : ?>
+                                                        <tr>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['nim']); ?></td>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['nama']); ?></td>
+                                                            <td class="text-center">
+                                                                <img src="<?php echo htmlspecialchars($admin['gambar']); ?>" alt="Gambar" width="50">
+                                                            </td>
+                                                            <td class="text-center"><?php echo htmlspecialchars($admin['password']); ?></td>
+                                                            <td class="text-center">
+                                                                <a href="edit_admin.php?nim=<?php echo $admin['nim']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                                                <a href="delete_admin.php?nim=<?php echo $admin['nim']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this admin?')">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                            <!-- Pagination -->
+                                            <?php if ($number_of_pages > 1) : ?>
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination justify-content-center">
+                                                        <?php if ($page > 1) : ?>
+                                                            <li class="page-item">
+                                                                <a class="page-link text-dark" href="admin.php?page=<?php echo $page - 1; ?>" aria-label="Previous">
+                                                                    <span aria-hidden="true">&laquo;</span>
+                                                                    <span class="sr-only">Previous</span>
+                                                                </a>
+                                                            </li>
+                                                        <?php else : ?>
+                                                            <li class="page-item disabled">
+                                                                <a class="page-link text-dark" href="#" aria-label="Previous">
+                                                                    <span aria-hidden="true">&laquo;</span>
+                                                                    <span class="sr-only">Previous</span>
+                                                                </a>
+                                                            </li>
+                                                        <?php endif; ?>
 
-                                                    <?php for ($i = 1; $i <= $number_of_pages; $i++) : ?>
-                                                        <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link text-dark" href="admin.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                                                    <?php endfor; ?>
+                                                        <?php for ($i = 1; $i <= $number_of_pages; $i++) : ?>
+                                                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a class="page-link text-dark" href="admin.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                                                        <?php endfor; ?>
 
-                                                    <?php if ($page < $number_of_pages) : ?>
-                                                        <li class="page-item">
-                                                            <a class="page-link text-dark" href="admin.php?page=<?php echo $page + 1; ?>" aria-label="Next">
-                                                                <span aria-hidden="true">&raquo;</span>
-                                                                <span class="sr-only">Next</span>
-                                                            </a>
-                                                        </li>
-                                                    <?php else : ?>
-                                                        <li class="page-item disabled">
-                                                            <a class="page-link text-dark" href="#" aria-label="Next">
-                                                                <span aria-hidden="true">&raquo;</span>
-                                                                <span class="sr-only">Next</span>
-                                                            </a>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                </ul>
-                                            </nav>
-                                        <?php endif; ?>
+                                                        <?php if ($page < $number_of_pages) : ?>
+                                                            <li class="page-item">
+                                                                <a class="page-link text-dark" href="admin.php?page=<?php echo $page + 1; ?>" aria-label="Next">
+                                                                    <span aria-hidden="true">&raquo;</span>
+                                                                    <span class="sr-only">Next</span>
+                                                                </a>
+                                                            </li>
+                                                        <?php else : ?>
+                                                            <li class="page-item disabled">
+                                                                <a class="page-link text-dark" href="#" aria-label="Next">
+                                                                    <span aria-hidden="true">&raquo;</span>
+                                                                    <span class="sr-only">Next</span>
+                                                                </a>
+                                                            </li>
+                                                        <?php endif; ?>
+                                                    </ul>
+                                                </nav>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +270,6 @@ mysqli_close($conection_db); // Tutup koneksi database
             </div>
         </div>
     </div>
-</div>
 
     <!-- Required Js -->
     <script src="assets/js/vendor-all.min.js"></script>

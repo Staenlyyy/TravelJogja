@@ -64,6 +64,7 @@ mysqli_close($conection_db); // Tutup koneksi database
     <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+
 .pcoded-navbar {
     background-color: #290964 !important;
 }
@@ -155,7 +156,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
-                <span class="b-title">Admin</span>
+                <span class="b-title">Travel Jogja</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -168,6 +169,7 @@ mysqli_close($conection_db); // Tutup koneksi database
         </div>
     </header>
     <!-- [ Header ] end -->
+
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
@@ -178,7 +180,7 @@ mysqli_close($conection_db); // Tutup koneksi database
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between align-items-center">
                                         <h4>Data User</h4>
-                                        </div>
+                                    </div>
                                     <div class="card-block">
                                         <div class="table-responsive">
                                             <table class="table table-striped table-bordered">
@@ -259,6 +261,7 @@ mysqli_close($conection_db); // Tutup koneksi database
             </div>
         </div>
     </div>
+
     <!-- Required Js -->
     <script src="assets/js/vendor-all.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
