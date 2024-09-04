@@ -181,15 +181,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
-        <div class="navbar-brand header-logo" style="background-color: #290964;">
-            <a href="home.php" class="b-brand">
-                <div>
-                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
-                </div>
-              <span class="b-title">Travel Jogja</span>
-            </a>
-             <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-        </div>
+            <div class="navbar-brand header-logo">
+                <a href="home.php" class="b-brand">
+                    <div>
+                        <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
+                    </div>
+                    <span class="b-title">DIY</span>
+                </a>
+                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+            </div>
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
