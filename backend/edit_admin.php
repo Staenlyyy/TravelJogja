@@ -136,14 +136,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Edit Admin</title>
+    <title>Travel Jogja</title>
+
+    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Favicon icon -->
     <link rel="icon" href="assets/images/TGU.ico" type="image/x-icon">
+    <!-- fontawesome icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
     <link rel="stylesheet" href="assets/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+.pcoded-navbar {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .nav {
+    background-color: #290964;
+}
+.pcoded-navbar .navbar-content .nav a {
+    color: white !important;
+}
+.card.custom-card .card-body {
+    background-color: #290964;
+    color: white;
+}
+.pcoded-header {
+    background-color: #290964;
+}
+.pcoded-header .navbar {
+    background-color: #290964;
+}
+.navbar-brand .b-title {
+    color: #ffffff;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu {
+    background-color: #290964 !important;
+}
+.pcoded-navbar .navbar-content .pcoded-submenu .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item .nav-link {
+    color: white !important;
+}
+.pcoded-navbar .nav-item.active .nav-link {
+    background-color: #290964 !important;
+}
+</style>
 </head>
 <body>
     <div class="loader-bg">
@@ -151,23 +194,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="loader-fill"></div>
         </div>
     </div>
+    <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar">
         <div class="navbar-wrapper">
-            <div class="navbar-brand header-logo">
-                <a href="home.php" class="b-brand">
-                    <div>
-                        <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
-                    </div>
-                    <span class="b-title">DIY</span>
-                </a>
-                <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
-            </div>
+        <div class="navbar-brand header-logo" style="background-color: #290964;">
+            <a href="home.php" class="b-brand">
+                <div>
+                    <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
+                </div>
+              <span class="b-title">Travel Jogja</span>
+            </a>
+             <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
                         <label>Navigasi</label>
                     </li>
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item">
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
                         <a href="home.php" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                     </li>
                     <li class="nav-item pcoded-hasmenu">
@@ -187,6 +231,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </nav>
+    <!-- [ navigation menu ] end -->
+
+    <!-- [ Header ] start -->
     <header class="navbar pcoded-header navbar-expand-lg navbar-light">
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
@@ -194,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div>
                     <img class="rounded-circle" style="width:40px;" src="assets/images/TGU.ico" alt="activity-user">
                 </div>
-                <span class="b-title">DIY</span>
+                <span class="b-title">Admin</span>
             </a>
         </div>
         <a class="mobile-menu" id="mobile-header" href="javascript:">
@@ -206,6 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </div>
     </header>
+    <!-- [ Header ] end -->
     <div class="pcoded-main-container">
         <div class="pcoded-wrapper">
             <div class="pcoded-content">
